@@ -1,0 +1,76 @@
+package pack;
+import java.util.Scanner;
+import character.Player;
+public class Test {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		Player black = new Player("b");
+		Player white = new Player("w");
+		int[][] board = new int[10][10];
+		boolean turn = true;
+		int a,b,c=0;
+		for(int i = 0; i< 10; i++) {
+			for(int j = 0; j< 10; j++) {
+				if(board[i][j] == 0) {
+					System.out.print("·"+" ");
+				}
+				else if(board[i][j] == 1) {
+					System.out.print("○"+" ");
+				}
+				else {
+					System.out.print("●"+" ");
+				}
+			}
+			System.out.println("");
+		}
+		while(true) {
+			if(turn) {
+				System.out.println(black.name + "님 차례입니다.");
+			}
+			else System.out.println(white.name + "님 차례입니다.");
+			System.out.println("x좌표를 입력하세요.");
+			a = in.nextInt();
+			System.out.println("y좌표를 입력하세요.");
+			b = in.nextInt();
+			if(board[a-1][b-1] != 0) {
+				for(int i = 0; i< 10; i++) {
+					for(int j = 0; j< 10; j++) {
+						if(board[i][j] == 0) {
+							System.out.print("·"+" ");
+						}
+						else if(board[i][j] == 1) {
+							System.out.print("○"+" ");
+						}
+						else {
+							System.out.print("●"+" ");
+						}
+					}
+					System.out.println("");
+				}
+				System.out.println("거기는 돌이 있어용");
+				System.out.println("");
+				continue;
+			}
+			if(turn)board[a-1][b-1] = 1;
+			else board[a-1][b-1] = 2;
+			for(int i = 0; i< 10; i++) {
+				for(int j = 0; j< 10; j++) {
+					if(board[i][j] == 0) {
+						System.out.print("·"+" ");
+					}
+					else if(board[i][j] == 1) {
+						System.out.print("○"+" ");
+					}
+					else {
+						System.out.print("●"+" ");
+					}
+				}
+				System.out.println("");
+			}
+			turn = !turn;
+			if(c == 1)break;
+		}
+		in.close();
+		
+	}
+}

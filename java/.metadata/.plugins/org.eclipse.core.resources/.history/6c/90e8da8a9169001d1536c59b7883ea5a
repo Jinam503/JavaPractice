@@ -1,0 +1,10 @@
+package game;
+
+import java.util.Scanner;
+public class InitGame {
+
+	Scanner in = new Scanner(System.in);
+	System.out.println("흑 잡을 사람 이름을 적어주세요");
+	String name1 = in.nextLine();
+	
+}
