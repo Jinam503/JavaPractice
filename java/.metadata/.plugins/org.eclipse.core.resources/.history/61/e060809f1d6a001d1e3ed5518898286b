@@ -7,15 +7,28 @@ public class Draw {
 		else board[a][b] = 21;
 		
 	}
-	public void createBoard() {
-		board = new int[20][20];
-		for(int i = 1; i<=19; i++) board[i][0] = i;
-		for(int i = 1; i<=19; i++) board[0][i] = i;
+	public void createBoard(int a) {
+		if(a == 5) {
+			board = new int[20][20];
+			for(int i = 1; i<=19; i++) board[i][0] = i;
+			for(int i = 1; i<=19; i++) board[0][i] = i;
+		}
+		else if(a == 6) {
+			board = new int [25][25];
+			for(int i = 1; i<=25; i++) board[i][0] = i;
+			for(int i = 1; i<=25; i++) board[0][i] = i;
+		}
 	}
-	public void DrawMap() {
+	public void DrawMap(int a) {
 		int A,B ;
-		A = 19; 
-		B = 19;
+		if ( a==5) {
+			A = 19; 
+			B = 19;
+		}
+		else {
+			A = 25;
+			B = 25;
+		}
 		for(int i = 0; i<= A; i++) {
 			for(int j = 0; j<= B; j++) {
 				if(board[i][j] == 0) {
@@ -28,18 +41,13 @@ public class Draw {
 					System.out.print("○"+"   ");
 				}
 				else {
-					if(j == 0 && i >= 10) {
-						System.out.print(board[i][j] + "  ");
-						continue;
-					}
-					else if(i == 0 &&j >= 10) {
-						System.out.print(board[i][j] + "  ");
+					if(B == 0 && A >= 10) {
+						System.out.print(board[i][j] + " ");
 						continue;
 					}
 					System.out.print(board[i][j] + "   ");
 				}
 			}
-			System.out.println("");
 			System.out.println("");
 		}
 	}

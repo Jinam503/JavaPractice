@@ -16,7 +16,7 @@ public class Test {
 		Draw d = new Draw();
 		System.out.print("몇 목 하실건가요? (3목, 5목, 6목): ");
 		int how = in.nextInt();
-		d.createBoard();
+		d.createBoard(how);
 		
 		
 		boolean turn = true;

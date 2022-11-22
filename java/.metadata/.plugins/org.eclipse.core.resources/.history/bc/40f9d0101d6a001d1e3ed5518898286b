@@ -18,7 +18,9 @@ public class Test {
 		int how = in.nextInt();
 		d.createBoard();
 		
-		
+		d.board = new int[11][11];
+		for(int i = 1; i<=10; i++) d.board[i][0] = i;
+		for(int i = 1; i<=10; i++) d.board[0][i] = i;
 		boolean turn = true;
 		int a,b,c=0;
 		d.DrawMap();

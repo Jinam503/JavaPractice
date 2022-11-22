@@ -16,12 +16,12 @@ public class Test {
 		Draw d = new Draw();
 		System.out.print("몇 목 하실건가요? (3목, 5목, 6목): ");
 		int how = in.nextInt();
-		d.createBoard();
+		d.createBoard(how);
 		
 		
 		boolean turn = true;
 		int a,b,c=0;
-		d.DrawMap();
+		d.DrawMap(how);
 		while(true) {
 			if(turn) {
 				System.out.println(black.name + "님 차례입니다.");
@@ -32,20 +32,20 @@ public class Test {
 			System.out.println("y좌표를 입력하세요.");
 			b = in.nextInt();
 			if(a<=0 || a > 10 || b <= 0 || a > 10) {
-				d.DrawMap();
+				d.DrawMap(how);
 				System.out.println("거기는 둘 수 없어용");
 				System.out.println("");
 				continue;
 			}
 			if(d.CheckPlace(a, b)) {
-				d.DrawMap();
+				d.DrawMap(how);
 				System.out.println("거기는 돌이 있어용");
 				System.out.println("");
 				continue;
 			}
 			
 			d.insert(a, b, turn);
-			d.DrawMap();
+			d.DrawMap(how);
 			turn = !turn;
 			if(c == 1)break;
 		}

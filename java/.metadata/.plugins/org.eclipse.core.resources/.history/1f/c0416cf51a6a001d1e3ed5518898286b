@@ -14,11 +14,9 @@ public class Test {
 		Player black = new Player(name1);
 		Player white = new Player(name2);
 		Draw d = new Draw();
-		System.out.print("몇 목 하실건가요? (3목, 5목, 6목): ");
-		int how = in.nextInt();
-		d.createBoard();
-		
-		
+		d.board = new int[11][11];
+		for(int i = 1; i<=10; i++) d.board[i][0] = i;
+		for(int i = 1; i<=10; i++) d.board[0][i] = i;
 		boolean turn = true;
 		int a,b,c=0;
 		d.DrawMap();
@@ -31,19 +29,18 @@ public class Test {
 			a = in.nextInt();
 			System.out.println("y좌표를 입력하세요.");
 			b = in.nextInt();
-			if(a<=0 || a > 10 || b <= 0 || a > 10) {
-				d.DrawMap();
-				System.out.println("거기는 둘 수 없어용");
-				System.out.println("");
-				continue;
-			}
 			if(d.CheckPlace(a, b)) {
 				d.DrawMap();
 				System.out.println("거기는 돌이 있어용");
 				System.out.println("");
 				continue;
 			}
-			
+			if(a<=0 || a > 10 || b <= 0 || a > 10) {
+				d.DrawMap();
+				System.out.println("거기는 둘 수 없어용");
+				System.out.println("");
+				continue;
+			}
 			d.insert(a, b, turn);
 			d.DrawMap();
 			turn = !turn;
