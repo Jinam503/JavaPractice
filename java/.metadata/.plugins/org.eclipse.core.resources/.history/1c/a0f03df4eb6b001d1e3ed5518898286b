@@ -48,8 +48,12 @@ public class Test {
 			d.insert(a, b, turn);
 			d.DrawMap();
 			turn = !turn;
-			if(Win.gameEnd(d.board) == 1) {
+			if(Win.checkFinish(0) == 1) {
 				System.out.println("흑");
+				break;
+			}
+			else if(Win.checkFinish(0) == 2) {
+				System.out.println("백");
 				break;
 			}
 		}

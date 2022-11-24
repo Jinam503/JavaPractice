@@ -2,7 +2,6 @@ package pack;
 import character.Player;
 import java.util.Scanner;
 import game.Draw;
-import game.Win;
 public class Test {
 	public static void main(String[] args) {
 		
@@ -15,7 +14,7 @@ public class Test {
 		Player black = new Player(name1);
 		Player white = new Player(name2);
 		Draw d = new Draw();
-		System.out.print("몇 목 하실건가요? (5목, 6목): ");
+		System.out.print("몇 목 하실건가요? (3목, 5목, 6목): ");
 		int how = in.nextInt();
 		d.createBoard();
 		
@@ -32,7 +31,7 @@ public class Test {
 			a = in.nextInt();
 			System.out.println("y좌표를 입력하세요.");
 			b = in.nextInt();
-			if((a<=0 || a > 19 || b <= 0 || a > 19)) {
+			if(a<=0 || a > 10 || b <= 0 || a > 10) {
 				d.DrawMap();
 				System.out.println("거기는 둘 수 없어용");
 				System.out.println("");
@@ -48,10 +47,7 @@ public class Test {
 			d.insert(a, b, turn);
 			d.DrawMap();
 			turn = !turn;
-			if(Win.gameEnd(d.board) == 1) {
-				System.out.println("흑");
-				break;
-			}
+			if(c == 1)break;
 		}
 		
 		in.close();

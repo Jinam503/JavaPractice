@@ -2,4 +2,5 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="character.Player"/>
     <fullyQualifiedTypeName name="game.Draw"/>
+    <fullyQualifiedTypeName name="game.Win"/>
 </qualifiedTypeNameHistroy>

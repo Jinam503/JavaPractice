@@ -52,6 +52,10 @@ public class Test {
 				System.out.println("흑");
 				break;
 			}
+			else if(Win.checkFinish(0) == 2) {
+				System.out.println("백");
+				break;
+			}
 		}
 		
 		in.close();

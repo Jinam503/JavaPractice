@@ -1,0 +1,26 @@
+package game;
+
+public class Win {
+	private int MAX_N = 19;
+	
+	public int checkFinish(int t) {
+		if (t == MAX_N * MAX_N)
+			return 0;
+		int x = t % MAX_N;
+		int y = t / MAX_N;
+		int color = Draw.board[y][x];
+		int[] dir = new int[3];
+		for (int i = 0; i < 5 && color != 0; i++) {
+			if (x + i < MAX_N && color == Draw.board[y][x + i])
+				dir[0]++;
+			if (y + i < MAX_N && color == Draw.board[y + i][x])
+				dir[1]++;
+			if (x + i < MAX_N && y + i < MAX_N && color == Draw.board[y + i][x + i])
+				dir[2]++;
+		}
+		for (int i = 0; i < 3; i++)
+			if (dir[i] == 5)
+				return color;
+		return checkFinish(t + 1);
+	}
+}
