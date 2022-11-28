@@ -49,7 +49,11 @@ public class Test {
 			d.DrawMap();
 			turn = !turn;
 			if(Win.gameEnd(d.board) == 1) {
-				System.out.println("흑");
+				System.out.println(name1 + "님이 이겼습니다!");
+				break;
+			}
+			else if(Win.gameEnd(d.board) == 2) {
+				System.out.println(name2 + "님이 이겼습니다!");
 				break;
 			}
 		}

@@ -1,7 +1,0 @@
-package character;
-
-public class Player {
-
-	String name;
-	int color;
-}
