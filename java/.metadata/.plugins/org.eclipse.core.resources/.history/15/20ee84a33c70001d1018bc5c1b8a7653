@@ -37,13 +37,13 @@ public class Win {
 				if(count1 == how) return 1;
 				if(count2 == how) return 2;
 				if(board[i][j] == 20) {
-					for(int k = 0; k < how; k++) {
+					for(int k = 0; k < 5; k++) {
 						if(board[i++][j++] == 20) count1++;
 						else break;
 					}
 				}
 				else if(board[i][j] == 21) {
-					for(int k = 0; k < how; k++) {
+					for(int k = 0; k < 5; k++) {
 						if(board[i++][j++] == 21) count2++;
 					}
 				}
@@ -60,13 +60,13 @@ public class Win {
 				if(count1 == how) return 1;
 				if(count2 == how) return 2;
 				if(board[i][j] == 20) {
-					for(int k = 0; k < how; k++) {
+					for(int k = 0; k < 5; k++) {
 						if(board[i++][j--] == 20) count1++;
 						else break;
 					}
 				}
 				else if(board[i][j] == 21) {
-					for(int k = 0; k < how; k++) {
+					for(int k = 0; k < 5; k++) {
 						if(board[i++][j--] == 21) count2++;
 					}
 				}

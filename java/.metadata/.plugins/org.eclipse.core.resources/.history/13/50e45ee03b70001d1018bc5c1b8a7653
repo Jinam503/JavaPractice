@@ -4,8 +4,6 @@ import java.util.Scanner;
 import game.Draw;
 import game.Win;
 public class Test {
-	private static int how, x, y;
-	private static boolean turn;
 	public static void main(String[] args) {
 		
 		Scanner in = new Scanner(System.in);
@@ -18,10 +16,13 @@ public class Test {
 		Player white = new Player(name2);
 		Draw d = new Draw();
 		System.out.print("몇 목 하실건가요? (5목, 6목): ");
-		how = in.nextInt();
+		int how = in.nextInt();
 		d.createBoard();
+		
+		
+		boolean turn = true;
+		int x, y;
 		d.DrawMap();
-		turn = true;
 		while(true) {
 			if(turn) {
 				System.out.println(black.name + "님 차례입니다.");

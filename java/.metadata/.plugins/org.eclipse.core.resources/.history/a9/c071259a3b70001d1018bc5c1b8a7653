@@ -4,8 +4,6 @@ import java.util.Scanner;
 import game.Draw;
 import game.Win;
 public class Test {
-	private static int how, x, y;
-	private static boolean turn;
 	public static void main(String[] args) {
 		
 		Scanner in = new Scanner(System.in);
@@ -18,33 +16,36 @@ public class Test {
 		Player white = new Player(name2);
 		Draw d = new Draw();
 		System.out.print("몇 목 하실건가요? (5목, 6목): ");
-		how = in.nextInt();
+		int how = in.nextInt();
 		d.createBoard();
+		
+		
+		boolean turn = true;
+		int a,b;
 		d.DrawMap();
-		turn = true;
 		while(true) {
 			if(turn) {
 				System.out.println(black.name + "님 차례입니다.");
 			}
 			else System.out.println(white.name + "님 차례입니다.");
 			System.out.println("x좌표를 입력하세요.");
-			x = in.nextInt();
+			a = in.nextInt();
 			System.out.println("y좌표를 입력하세요.");
-			y = in.nextInt();
-			if((x<=0 || y > 19 || x <= 0 || y > 19)) {
+			b = in.nextInt();
+			if((a<=0 || a > 19 || b <= 0 || a > 19)) {
 				d.DrawMap();
 				System.out.println("거기는 둘 수 없어용");
 				System.out.println("");
 				continue;
 			}
-			if(d.CheckPlace(x, y)) {
+			if(d.CheckPlace(a, b)) {
 				d.DrawMap();
 				System.out.println("거기는 돌이 있어용");
 				System.out.println("");
 				continue;
 			}
 			
-			d.insert(x, y, turn);
+			d.insert(a, b, turn);
 			d.DrawMap();
 			turn = !turn;
 			if(Win.gameEnd(d.board, how) == 1) {

@@ -21,7 +21,6 @@ public class Test {
 		how = in.nextInt();
 		d.createBoard();
 		d.DrawMap();
-		turn = true;
 		while(true) {
 			if(turn) {
 				System.out.println(black.name + "님 차례입니다.");
